@@ -9,13 +9,13 @@ import (
 )
 
 const (
-	CONFLICT_STATUS_CODE              = http.StatusConflict
-	FORBIDDEN_STATUS_CODE             = http.StatusForbidden
-	UNPROCESSABLE_ENTITY_STATUS_CODE  = http.StatusUnprocessableEntity
-	INTERNAL_SERVER_ERROR_STATUS_CODE = http.StatusInternalServerError
-	BAD_REQUEST_STATUS_CODE           = http.StatusBadRequest
-	UNAUTHORIZED_STATUS_CODE          = http.StatusUnauthorized
-	NOT_FOUND_STATUS_CODE             = http.StatusNotFound
+	ConflictStatusCode            = http.StatusConflict
+	ForbiddenStatusCode           = http.StatusForbidden
+	UnprocessableEntityStatusCode = http.StatusUnprocessableEntity
+	InternalServerErrorStatusCode = http.StatusInternalServerError
+	BadRequestStatusCode          = http.StatusBadRequest
+	UnauthorizedStatusCode        = http.StatusUnauthorized
+	NotFoundStatusCode            = http.StatusNotFound
 )
 
 // Logger - Interface that describe a Logger Service
@@ -88,7 +88,7 @@ func BuildGenericError(err error, httpStatusCode int) *GenericError {
 // NewConflictError - Create pointer to new ConflictError
 func NewConflictError(err error) *ConflictError {
 	return &ConflictError{
-		HTTPStatusCode: CONFLICT_STATUS_CODE,
+		HTTPStatusCode: ConflictStatusCode,
 		Message:        err.Error(),
 	}
 }
@@ -96,7 +96,7 @@ func NewConflictError(err error) *ConflictError {
 // NewForbiddenError - Create pointer to new ForbiddenError
 func NewForbiddenError(err error) *ForbiddenError {
 	return &ForbiddenError{
-		HTTPStatusCode: FORBIDDEN_STATUS_CODE,
+		HTTPStatusCode: ForbiddenStatusCode,
 		Message:        err.Error(),
 	}
 }
@@ -104,7 +104,7 @@ func NewForbiddenError(err error) *ForbiddenError {
 // NewUnprocessableEntityError - Create pointer to new UnprocessableEntityError
 func NewUnprocessableEntityError(err error) *UnprocessableEntityError {
 	return &UnprocessableEntityError{
-		HTTPStatusCode: UNPROCESSABLE_ENTITY_STATUS_CODE,
+		HTTPStatusCode: UnprocessableEntityStatusCode,
 		Message:        err.Error(),
 	}
 }
@@ -112,7 +112,7 @@ func NewUnprocessableEntityError(err error) *UnprocessableEntityError {
 // NewUnprocessableEntityError - Create pointer to new InternalServerError
 func NewInternalServerError(err error) *InternalServerError {
 	return &InternalServerError{
-		HTTPStatusCode: INTERNAL_SERVER_ERROR_STATUS_CODE,
+		HTTPStatusCode: InternalServerErrorStatusCode,
 		Message:        err.Error(),
 	}
 }
@@ -120,7 +120,7 @@ func NewInternalServerError(err error) *InternalServerError {
 // NewBadRequestError - Create pointer to new BadRequestError
 func NewBadRequestError(err error) *BadRequestError {
 	return &BadRequestError{
-		HTTPStatusCode: BAD_REQUEST_STATUS_CODE,
+		HTTPStatusCode: BadRequestStatusCode,
 		Message:        err.Error(),
 	}
 }
@@ -128,7 +128,7 @@ func NewBadRequestError(err error) *BadRequestError {
 // NewUnauthorizedError - Create pointer to new UnauthorizedError
 func NewUnauthorizedError(err error) *UnauthorizedError {
 	return &UnauthorizedError{
-		HTTPStatusCode: UNAUTHORIZED_STATUS_CODE,
+		HTTPStatusCode: UnauthorizedStatusCode,
 		Message:        err.Error(),
 	}
 }
@@ -136,7 +136,7 @@ func NewUnauthorizedError(err error) *UnauthorizedError {
 // NewNotFoundError - Create pointer to new NotFoundError
 func NewNotFoundError(err error) *NotFoundError {
 	return &NotFoundError{
-		HTTPStatusCode: NOT_FOUND_STATUS_CODE,
+		HTTPStatusCode: NotFoundStatusCode,
 		Message:        err.Error(),
 	}
 }

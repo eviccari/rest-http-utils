@@ -9,8 +9,8 @@ import (
 )
 
 const (
-	CONTENT_TYPE_STRING     = "Content-type"
-	APPLICATION_JSON_STRING = "application/json"
+	ContentTypeString     = "Content-type"
+	ApplicationJsonString = "application/json"
 )
 
 type DefaultHttpJSONResponse struct {
@@ -40,7 +40,7 @@ func WriteJSONResponse(w http.ResponseWriter, payload interface{}, statusCode in
 	if err != nil {
 		WriteJSONErrorResponse(w, httperrors.NewInternalServerError(err))
 	} else {
-		w.Header().Add(CONTENT_TYPE_STRING, APPLICATION_JSON_STRING)
+		w.Header().Add(ContentTypeString, ApplicationJsonString)
 		w.WriteHeader(statusCode)
 		w.Write(response)
 	}
@@ -49,7 +49,7 @@ func WriteJSONResponse(w http.ResponseWriter, payload interface{}, statusCode in
 // WriteJSONErrorResponse - Write JSON Error payload into ResponseWriter
 func WriteJSONErrorResponse(w http.ResponseWriter, errorMessage httperrors.IHTTPError) {
 	response, _ := json.Marshal(errorMessage)
-	w.Header().Add(CONTENT_TYPE_STRING, APPLICATION_JSON_STRING)
+	w.Header().Add(ContentTypeString, ApplicationJsonString)
 	w.WriteHeader(errorMessage.StatusCode())
 	w.Write(response)
 }
