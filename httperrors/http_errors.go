@@ -109,7 +109,7 @@ func NewUnprocessableEntityError(err error) *UnprocessableEntityError {
 	}
 }
 
-// NewUnprocessableEntityError - Create pointer to new InternalServerError
+// NewInternalServerError - Create pointer to new InternalServerError
 func NewInternalServerError(err error) *InternalServerError {
 	return &InternalServerError{
 		HTTPStatusCode: InternalServerErrorStatusCode,
